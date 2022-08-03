@@ -1,0 +1,33 @@
+class Email:
+    company = 'google'
+
+    def __init__(self, fname, lname):
+        self.fname = fname
+        self.lname = lname
+
+    def __repr__(self):
+        return f"{self.fname}{self.lname}@{self.company}.com".lower()
+
+
+def create():
+    fname = input("Enter your first name:")
+    lname = input("Enter your last name:")
+    return Email(fname, lname)
+
+
+def show(name):
+    print("Generated Email")
+    print('\n'.join(['{}.{}'.format(i, val) for i, val in (enumerate(name, start=1))]))
+
+
+name = []
+print("\tWelcome to Email Generated App!")
+print("================================================\n")
+running = True
+while running:
+    Add = str(input("Add name?:")).lower()
+    if Add == "yes":
+        name.append(create())
+    elif Add == "no":
+        show(name)
+        break
